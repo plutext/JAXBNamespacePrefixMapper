@@ -1,0 +1,128 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>  
+  <groupId>com.googlecode.jaxb-namespaceprefixmapper-interfaces</groupId>
+  <artifactId>JAXBNamespacePrefixMapper</artifactId>
+  <packaging>jar</packaging>  
+  <version>6.1.0-SNAPSHOT</version>
+  <name>JAXB-NamespacePrefixMapper-Interfaces</name>
+  <description>abstract class NamespacePrefixMapper in appropriate packages required at compile time for a JAXB dependent project which uses namespace prefix mapping (eg docx4j) to be able to support both the JAXB reference implementation and the JAXB included in Java 6. </description>
+  <url>https://github.com/plutext/JAXBNamespacePrefixMapper</url>
+  <licenses>
+    <license>
+      <name>Common Development and Distribution License (CDDL-1.0)</name>
+      <url>http://www.opensource.org/licenses/CDDL-1.0</url>
+      <distribution>repo</distribution>
+    </license>
+    <!--  MOXy: -->
+    <license>
+      <name>Eclipse Public License v1.0</name>
+      <url>http://www.eclipse.org/legal/epl-v10.html</url>
+      <distribution>repo</distribution>
+    </license>
+    <license>
+      <name>Eclipse Distribution License v. 1.0</name>
+      <url>http://www.eclipse.org/org/documents/edl-v10.php</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:svn:http://jaxb-namespaceprefixmapper-interfaces.googlecode.com/svn/trunk/</connection>
+    <developerConnection>scm:svn:https://jaxb-namespaceprefixmapper-interfaces.googlecode.com/svn/trunk/</developerConnection>
+    <url>http://jaxb-namespaceprefixmapper-interfaces.googlecode.com/svn/trunk/</url>  	
+  </scm>
+  <developers>
+    <developer>
+      <id>jh1</id>
+      <name>Jason Harrop</name>
+      <email>jharrop@gmail.com</email>
+    </developer>
+  </developers>  
+  <build>
+    <plugins>
+<!--     
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+ -->      
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>2.3.2</version>
+			<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				<verbose>false</verbose>
+			</configuration>
+		</plugin>
+		
+		<plugin>
+			<artifactId>maven-source-plugin</artifactId>
+			<executions>
+				<execution>
+					<goals>
+						<goal>jar</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<maxmemory>512m</maxmemory>
+					<!-- 18 MB without the exclusion; still 15MB with -->
+					<!-- <excludePackageNames>org.plutext.jaxb.svg11:org.plutext.jaxb.xslfo</excludePackageNames> -->
+			        <additionalparam>-Xdoclint:none</additionalparam> <!-- for Java 8 -->
+				 </configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+    </plugins>
+  </build>
+  
+	<profiles> <!--  use -P eg mvn -Psign-artifacts  -->
+		<profile>
+			<id>sign-artifacts</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.4</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		</profiles>  
+  
+</project>
