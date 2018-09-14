@@ -30,11 +30,16 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-  <scm>
-    <connection>scm:svn:http://jaxb-namespaceprefixmapper-interfaces.googlecode.com/svn/trunk/</connection>
-    <developerConnection>scm:svn:https://jaxb-namespaceprefixmapper-interfaces.googlecode.com/svn/trunk/</developerConnection>
-    <url>http://jaxb-namespaceprefixmapper-interfaces.googlecode.com/svn/trunk/</url>  	
-  </scm>
+	<scm>
+	    <developerConnection>scm:git|git@github.com:plutext/JAXBNamespacePrefixMapper.git</developerConnection>
+    </scm>
+    
+	  <properties>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- github server corresponds to entry in ~/.m2/settings.xml -->
+    <github.global.server>github</github.global.server>
+	  </properties>	
+	      
   <developers>
     <developer>
       <id>jh1</id>
