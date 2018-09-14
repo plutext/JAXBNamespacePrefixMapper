@@ -8,7 +8,7 @@
   <groupId>com.googlecode.jaxb-namespaceprefixmapper-interfaces</groupId>
   <artifactId>JAXBNamespacePrefixMapper</artifactId>
   <packaging>jar</packaging>  
-  <version>6.1.0</version>
+  <version>6.1.1-SNAPSHOT</version>
   <name>JAXB-NamespacePrefixMapper-Interfaces</name>
   <description>abstract class NamespacePrefixMapper in appropriate packages required at compile time for a JAXB dependent project which uses namespace prefix mapping (eg docx4j) to be able to support both the JAXB reference implementation and the JAXB included in Java 6. </description>
   <url>https://github.com/plutext/JAXBNamespacePrefixMapper</url>
